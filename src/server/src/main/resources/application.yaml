@@ -1,0 +1,5 @@
+org.imanushin.intellij.bug.common:
+    stringProperty: some values
+
+org.imanushin.intellij.bug.server:
+    stringProperty: some values

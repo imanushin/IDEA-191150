@@ -1,0 +1,22 @@
+apply plugin: 'kotlin'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile("org.springframework.boot:spring-boot-starter-web:2.0.1.RELEASE")
+
+}
+
+def bytecodeVersion = JavaVersion.VERSION_1_8
+
+compileJava {
+    targetCompatibility = bytecodeVersion
+    sourceCompatibility = bytecodeVersion
+}
+
+compileKotlin {
+    targetCompatibility = bytecodeVersion
+    sourceCompatibility = bytecodeVersion
+}

@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
+}
+
+def baseVersion = "1.0.0"
+
+def buildNumber = hasProperty('build.number') ? "." + project['build.number'] : "-SNAPSHOT"
+
+version = baseVersion + buildNumber
+
+println("Version: $version; build number - $buildNumber")
+
+subprojects {
+    repositories {
+        jcenter()
+    }
+
+    ext {
+        isRelease = rootProject.hasProperty('build.number')
+    }
+
+    group = "org.imanushin.intellij.bug"
+    version = rootProject.version
+}

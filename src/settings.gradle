@@ -1,0 +1,4 @@
+include 'common'
+include 'server'
+
+rootProject.name = 'bug'
